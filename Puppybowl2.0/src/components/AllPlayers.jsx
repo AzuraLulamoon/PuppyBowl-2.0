@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-// const baseUrl = ['https://fsa-puppy-bowl.herokuapp.com/api/2306-FTB-ET-WEB-FT/players']
+import { useNavigate } from "react-router-dom";
 
 export default function AllPlayers() {
     
@@ -14,7 +12,7 @@ export default function AllPlayers() {
             
             try {
                 const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2306-FTB-ET-WEB-FT/players')
-                const data = response.json();
+                const data = await response.json();
 
                 console.log(data)
                 setPlayers(data.data.players);
@@ -30,7 +28,7 @@ export default function AllPlayers() {
     return <>
         {players.map((player, index) => 
             <div key={index} className="allPlayers" 
-                onClick={() => navigate(`/${player.name}`)}>
+                onClick={() => navigate(`/${player.id}`)}>
                 <h1>{player.name}</h1>
         </div>
         )}

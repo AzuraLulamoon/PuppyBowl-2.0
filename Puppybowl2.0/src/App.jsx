@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 // import NavBar from './components/NavBar'
 import AllPlayers from './components/AllPlayers'
 // import NewPlayerForm from './components/NewPlayerForm'
-// import SinglePlayer from './components/NewPlayerForm'
+import SinglePlayer from './components/SinglePlayer'
 
 export default function App() {
 
@@ -14,7 +14,7 @@ export default function App() {
         <div id='main-block'>
           <Routes>
             <Route path='/' element={<AllPlayers />} />
-            {/* <Route path='/:name' element={<SinglePlayer />} /> */}
+            <Route path='/:id' element={<SinglePlayer />} />
           </Routes>
         </div>
       </div>    
