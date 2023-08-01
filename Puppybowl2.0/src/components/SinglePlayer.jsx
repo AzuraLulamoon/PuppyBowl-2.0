@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function SinglePlayer() {
 
-    const [ player, setPlayer ] = useState([])
+    const [ player, setPlayer ] = useState({})
     const { id } = useParams()
 
     useEffect(() => {
@@ -16,11 +16,23 @@ export default function SinglePlayer() {
             const data = await response.json()
 
             console.log(data)
-            setPlayer(data)
+            setPlayer(cleanPlayer(data))
         }
         fetchData()
-        
+
+        console.log('fetch')
+
     }, [])
+
+    function cleanPlayer(data) {
+
+        return {
+            name: data.data.player.name,
+            id: data.data.player.id,
+            img: data.data.player.imageUrl,
+            breed: data.data.player.breed
+        }
+    }
 
 console.log(player)
 
@@ -29,8 +41,10 @@ return <div className="singlePlayer">
     <h1>{player.name}</h1>
     
     <h4>{player.breed}</h4>
+
+    <h4>{player.team}</h4>
     
-    <img src={player.imageUrl}/>
+    <img src={player.img}/>
 
     <Link to='/'><button>Return</button></Link>
 </div>
