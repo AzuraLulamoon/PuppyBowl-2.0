@@ -4,13 +4,17 @@ import {Routes, Route} from 'react-router-dom'
 import AllPlayers from './components/AllPlayers'
 // import NewPlayerForm from './components/NewPlayerForm'
 import SinglePlayer from './components/SinglePlayer'
+import Header from './components/Header'
 
 export default function App() {
 
   return (
     <>
+    <div id='header'>
+      <Header />
+        </div>
       <div id='container'>
-        {/* <NavBar /> */}
+        
         <div id='main-block'>
           <Routes>
             <Route path='/' element={<AllPlayers />} />

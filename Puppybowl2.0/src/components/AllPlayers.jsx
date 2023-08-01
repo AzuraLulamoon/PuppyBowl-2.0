@@ -30,6 +30,7 @@ export default function AllPlayers() {
             <div key={index} className="allPlayers" 
                 onClick={() => navigate(`/${player.id}`)}>
                 <h1>{player.name}</h1>
+                <img id='imageAll' src={player.imageUrl}/>
         </div>
         )}
     </>
