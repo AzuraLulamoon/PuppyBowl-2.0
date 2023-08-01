@@ -1,5 +1,5 @@
 import './App.css'
-// import {Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 // import NavBar from './components/NavBar'
 import AllPlayers from './components/AllPlayers'
 // import NewPlayerForm from './components/NewPlayerForm'
@@ -12,8 +12,10 @@ export default function App() {
       <div id='container'>
         {/* <NavBar /> */}
         <div id='main-block'>
-          <AllPlayers />
-            
+          <Routes>
+            <Route path='/' element={<AllPlayers />} />
+            {/* <Route path='/:name' element={<SinglePlayer />} /> */}
+          </Routes>
         </div>
       </div>    
     </>
